@@ -17,24 +17,29 @@ The html contains a some different tags. The ones you will be working with are t
 ### The main.js file
 The quiz data you will get from this url: https://gist.githubusercontent.com/benna100/c9c38faebea1526fb4e6b6b896a1dc94/raw/9468c385bfb422620676b3669509b0a59b326c42/quiz-questions.json
 
+Lets create a class for a `Quiz`:
 
-Just like we have done a couple of times before, lets create a constructor function for creating quizzes:
-This constructor function should have some different methods. You have to create the names i just write the requirements here:
+The `Quiz` class should in its constructor function have one paramter: `name`. 
 
-#### Fetch the questions
-This method returns a promise that resolves with the questions array gotten from the above url.
+Now actually create a `Quiz` instance. 
 
-Now actually create a `quiz` instance and try and see if the method you added (fetching questions) actually works. Do this for every method you add. Test it, test it and test it.
+This quiz class should have some different methods. You have to give the methods names i just write the requirements here:
+Remember! When you have added a method, test if it actually works. Do this for every method you add. Test it, test it and test it.
 
-#### Render the questions
-This method should have an array of question objects as a parameter. A question object contains the following properties: Title, content, options and difficulty. The title and content properties should be displayed inside a li. That li element should be appended to the ul with the classname questions. 
 
-Okay, so far so good. The user can now see the title and the content of the questions. But how should the user choose an options for answering? For the user to actually answer the individual questions we use the options array inside the question object. For the user to choose an option for a question use a select tag. See how the select tag works here: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+#### Fetch the questions (method 1)
+This method returns a promise that resolves with the questions array gotten from the above [url](https://gist.githubusercontent.com/benna100/c9c38faebea1526fb4e6b6b896a1dc94/raw/9468c385bfb422620676b3669509b0a59b326c42/quiz-questions.json).
+
+
+#### Render the questions (method 2)
+This method should have an array of question objects as a parameter. A question object contains the following properties: `title`, `content`, `options` and `difficulty`. The `title` and `content` properties should be displayed inside a `li`. That `li` element should be appended to the `ul` with the classname questions. 
+
+Okay, so far so good. The user can now see the title and the content of the questions. But how should the user choose an answer? For the user to actually answer the individual questions we use the options array inside the question object. For the user to choose an option for a question use a `select` tag. See how the `select` tag works here: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
 So now we have the questions rendered in a list and the user can select an option for each question that he thinks is the right answer, AWESOME!
 
-#### Show the score
-The last thing a user needs to be able to do is get his score. So when a user clicks the button inside of the form we should show how many question he got right out of the total number of questions like this: "Congratulations you got 5/7 question right, well done". 
+#### Show the score (method 3)
+The last thing a user needs to be able to do is get his score. So when a user clicks the button we should show how many questions he got right out of the total number of questions like this: "Congratulations you got 5/7 question right, well done". 
 To figure out how many questions were correctly answered we need to do the following: Find the selected options in the select tag that is also the correct answer. Finding the selected options can be done through a selector (google that!). For indicating that an option is the correct answer, add a data attribute to the element, so the rendered element will look like this: `<option data-is-answer="false"></option>`
 
 Now we can string a selector togther that selects the options that have the `data-is-answer` html attribute. 
@@ -49,13 +54,13 @@ To see how the confetti library (i already loaded) works look here: https://gith
 
 ## Recomended order of implementation
 You can off course write the code in the order you want to, but here is a suggestion:
-1. Create the quiz constructor function. 
+1. Create the `Quiz` class. 
 1. Create the fetching questions method.
-1. Render the questions with the title and the content in a li element and append these questions to the ul.
-2. Inside of the individual li elements add the select tag with the given options for the question.
+1. Create the render questions method. Render the questions with the title and the content in a li element and append these questions to the ul.
+2. Update the render questions method. Inside of the individual li elements add the select tag with the given options for the question.
 3. Add a click listener to the button. When a user clicks it just log out 'user clicked button'.
-4. When a user clicks the button calculate the score.
-6. Render the score to the user
+4. Create the get score method. When a user clicks the button calculate the score using the method. 
+6. Render the score to the user. 
 
 If you have any questions please ask and if you have more time try adding extra features like. 
 * Let the user choose what difficulty the rendered questions should be. 

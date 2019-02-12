@@ -79,7 +79,7 @@ ul li h1, ul li p {
 
 
 
-form button {
+.questions button {
     margin: 0 auto;
     background-color: #02C39A;
     padding: 12px 24px;
